@@ -1,0 +1,115 @@
+# Proyecto Final: Segunda Entrega 
+# Clase 20
+# Mongoose, DbaaS & Firebase
+
+***
+
+Descripción
+
+> Repositorio correspondiente a la segunda entrega del proyecto final
+del curso Backend de CoderHouse.
+> Proyecto de Ecommerce con persistencia memoria, archivos y en servidores de bases de datos
+MongoDB y Firebase.
+
+***
+
+Requisitos para ejecutar el código
+
+> VisualStudio Code
+> Nodejs
+> Postman
+> MongoDB
+> Mongosh
+
+***
+
+Instalación
+
+> Iniciar proyecto e instalar carpeta "node_modules" mediante secuencia "npm innit --y" en la terminal.
+> Instalar los módulos de express, mongoose, firebase-admin y dotenv.
+> Generar un archivo ".env" utilizando la plantilla ".env.example" ubicada en el repositorio.
+> Reemplazar el password en la plantilla ".env" por un password válido dentro de Mongo Atlas.
+> Reemplazar en Datasource el recurso que se quiera utilizar para verificar la persistencia:
+>> "memory" para persistencia en memoria únicamente (sin persistencia).
+>> "file" para utilizar los archivos .json ubicados en el directorio "./databases/files".
+    En caso de editar los archivos originales .json reemplazar la información por la encontrada en los archivos de respaldo "backup".
+>> "localMongo" para utilizar la persistencia mediante MongoDB haciendo uso de las terminales locales (Powershell o cmd).
+    Para iniciar este modo se deben habilitar dos terminales independientes: una para el cliente y una para el servidor.
+    En la terminal del servidor ejecutar "mongod --dbpath "<<DIRECCION DE LA CARPETA DATA DE MONGO>>"". 
+    En la terminal del cliente ejecutar "mongosh".
+>> "remoteMongo" para utilizar la persistencia mediante MongoDB haciendo uso de Mongo Atlas.
+>> "firebase" para utilizar la persistencia mediante la base de datos dispuesta en Firebase de Google.
+
+Consignas para productos
+
+> GET: '/' - Me permite listar todos los productos disponibles (disponible para usuarios y administradores).
+>> Ejemplo:
+    http://localhost:8080/api/productos
+    http://localhost:8080/api/productos?search=split
+    http://localhost:8080/api/productos?maxPrice=1000
+
+> GET: '/:id' - Me permite listar un producto por su id (disponible para usuarios y administradores).
+>> Ejemplo:
+    http://localhost:8080/api/productos/2
+
+> POST:'/' - Para incorporar productos al listado (disponible para administradores).
+>> Ejemplo (usando Postman):
+    Método: POST
+    URL: http://localhost:8080/api/productos?user=admin
+    Body: 
+    {        
+    "name": "Split Cassette Inverter (5 TR)",
+    "description": "Sistema de aire acondicionado split tipo cassette, tecnología inverter, capacidad 5 TR (60.000 BTU/hr), SEER 10, refrigerante R410A, 220V/1 Ph/60Hz.",
+    "code": "SPLCASS5TR",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/196-car-supplies-and-parts-for-repair-outline/64/car_fan_radiator_cooling_service_system_air_conditioner_cold-512.png",
+    "price": 1750,
+    "stock": 43
+    }
+
+> PUT: '/:id' - Actualiza un producto por su id (disponible para administradores).
+>> Ejemplo (usando Postman):
+    Método: PUT
+    URL: http://localhost:8080/api/productos/3?user=admin 
+    Body:
+    {
+    "name": "Minisplit On/Off Actualizado (1 TR)",
+    "description": "Sistema de aire acondicionado tipo minisplit, tecnología on/off, capacidad 1 TR (12.000 BTU/hr), SEER 12, refrigerante R410A, 220V/1 Ph/60Hz.",
+    "code": "MONOFF1TR",
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/ventilation-1/500/yul950_36_wall_air_conditioner_bottom_icon_outline_vector-512.png",
+    "price": 210,
+    "stock": 27
+    }
+
+> DELETE: '/:id' - Borra un producto por su id (disponible para administradores).
+>> Ejemplo (usando Postman): 
+    Método: DELETE
+    URL: http://localhost:8080/api/productos/3?user=admin 
+
+
+Consignas para carritos
+
+> POST:'/' - Crea un carrito y devuelve su id.
+>> Ejemplo (usando Postman):
+    Método: POST
+    URL: http://localhost:8080/api/carrito
+    Body: [2, 3]
+
+> DELETE: '/:id' - Vacía un carrito y lo elimina.
+>> Ejemplo (usando Postman):
+    Método: DELETE
+    URL: http://localhost:8080/api/carrito/1
+
+> GET:'/:id/productos' - Me permite listar todos los productos guardados en el carrito.
+>> Ejemplo:
+    http://localhost:8080/api/carrito/2/productos
+
+> POST:'/:id/productos' - Para incorporar productos al carrito por su id de producto.
+>> Ejemplo (usando Postman):
+    Método: POST
+    URL: http://localhost:8080/api/carrito/2/productos
+    Body: [1,2]
+
+> DELETE: '/:id/productos/:id_prod' - Eliminar un producto del carrito por su id de carrito y de producto.
+>> Ejemplo (usando Postman):
+    Método: DELETE
+    URL: http://localhost:8080/api/carrito/2/productos/2

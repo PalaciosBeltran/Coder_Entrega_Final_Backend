@@ -1,5 +1,5 @@
 {
-  "name": "primera_entrega_2",
+  "name": "segunda_entrega_v2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.2.0",
+    "mongoose": "^6.7.2"
   }
 }
