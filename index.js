@@ -1,26 +1,34 @@
-const express = require('express');
-const path = require('path');
-const apiRoutes = require('./routers/app.routers');
-
-const app = express();
+const envConfig = require('./config');
 const PORT = process.env.PORT || 8080;
 
-// Middlewares
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, './public')));
+const DATASOURCE_BY_ENV = {
+  file: require('./models/containers/container.file'),
+  localMongo: require('./models/containers/container.mongo'),
+  remoteMongo: require('./models/containers/container.mongo'),
+  firebase: require('./models/containers/container.firebase')
+};
 
-// Routes
-app.use('/api' , apiRoutes);
+const dataSource = DATASOURCE_BY_ENV[envConfig.DATASOURCE];
 
-app.use('*', (req, res) =>{
-  res.status(404).send({success: false, error : -2 , description: `Error ${res.statusCode}: El método ${req.method} para la ruta ${req.baseUrl} no es correcto. Verifique la ruta o consulte al administrador.`})
-})
+if(envConfig.DATASOURCE == 'firebase'){
+  const admin = require("firebase-admin");
+  const serviceAccount = require("./databases/firebase/firebase.config.json");
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+  });
+}
 
-const connectedServer = app.listen(PORT, ()=> {
-  console.log(`Server is up and running on port ${PORT}`);
+const app = require("./app");
+
+app.listen(PORT, () => {
+  if(envConfig.DATASOURCE == 'localMongo' || envConfig.DATASOURCE == 'remoteMongo'){
+    dataSource.connect().then(() => {
+      console.log(`Server is up and running on port ${PORT}.`);
+      console.log(`Data persistence provided via ${envConfig.DATASOURCE}.`);
+    })
+  }
+  else{
+    console.log(`Server is up and running on port ${PORT}.`);
+    console.log(`Data persistence provided via ${envConfig.DATASOURCE}.`);
+  }
 });
-
-connectedServer.on('error', (error) => {
-  console.error('Error: ', error);
-})

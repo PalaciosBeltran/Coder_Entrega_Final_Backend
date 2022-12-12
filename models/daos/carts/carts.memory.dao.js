@@ -1,0 +1,76 @@
+const resource = 'carts';
+
+const cartsDefault = [
+    {
+        _id: "default-cart-1",
+        cartTimestamp: 1519129853500,
+        products: [
+            {
+                _id: "default-1",
+                productTimestamp: 1519129853500,
+                name: "Minisplit ON/OFF (1 TR)",
+                description: "Sistema de aire acondicionado tipo minisplit, tecnología on/off, capacidad 1 TR (12.000 BTU/hr), SEER 9, refrigerante R410A, 220V/1 Ph/60Hz.",
+                code: "MONOFF1TR",
+                thumbnail: "https://cdn2.iconfinder.com/data/icons/ventilation-1/500/yul950_36_wall_air_conditioner_bottom_icon_outline_vector-512.png",
+                price: 200,
+                stock: 30
+            },
+            {
+                _id: "default-2",
+                productTimestamp: 1519129853500,
+                name: "Minisplit Inverter (1 TR)",
+                description: "Sistema de aire acondicionado tipo minisplit, tecnología inverter, capacidad 1 TR (12.000 BTU/hr), SEER 16, refrigerante R410A, 220V/1 Ph/60Hz.",
+                code: "MINV1TR",
+                thumbnail: "https://cdn2.iconfinder.com/data/icons/ventilation-1/500/yul950_36_wall_air_conditioner_bottom_icon_outline_vector-512.png",
+                price: 300,
+                stock: 35
+            }
+        ]
+    },
+    {
+        _id: "default-cart-2",
+        cartTimestamp: 1519129853500,
+        products: [
+            {
+                _id: "default-3",
+                productTimestamp: 1519129853500,
+                name: "Split Cassette (3 TR)",
+                description: "Sistema de aire acondicionado split tipo cassette, tecnología inverter, capacidad 3 TR (36.000 BTU/hr), SEER 12, refrigerante R410A, 220V/1 Ph/60Hz.",
+                code: "SPLCASS3TR",
+                thumbnail: "https://cdn3.iconfinder.com/data/icons/196-car-supplies-and-parts-for-repair-outline/64/car_fan_radiator_cooling_service_system_air_conditioner_cold-512.png",
+                price: 1000,
+                stock: 42
+            },
+            {
+                _id: "default-4",
+                productTimestamp: 1519129853500,
+                name: "Split Cassette (4 TR)",
+                description: "Sistema de aire acondicionado split tipo cassette, tecnología inverter, capacidad 4 TR (48.000 BTU/hr), SEER 11, refrigerante R410A, 220V/1 Ph/60Hz.",
+                code: "SPLCASS4TR",
+                thumbnail: "https://cdn3.iconfinder.com/data/icons/196-car-supplies-and-parts-for-repair-outline/64/car_fan_radiator_cooling_service_system_air_conditioner_cold-512.png",
+                price: 1200,
+                stock: 27
+            }
+        ]
+    }
+]
+
+const MemoryContainer = require("../../containers/container.memory");
+
+class CartsMemoryDao extends MemoryContainer {
+    constructor(){
+        super(cartsDefault, resource);
+    }
+
+    async deleteProductsByCartId(cartIndex, productIndex){
+        try{
+            this.elements[cartIndex].products.splice(productIndex, 1);
+        }
+        catch(error){
+            console.log(error.message);
+        }
+    }
+
+}
+
+module.exports = CartsMemoryDao;

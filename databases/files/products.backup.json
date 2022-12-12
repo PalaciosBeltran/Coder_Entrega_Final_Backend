@@ -1,0 +1,82 @@
+[
+    {
+        "_id": "default-1",
+        "productTimestamp": 1519129853500,
+        "name": "Minisplit ON/OFF (1 TR)",
+        "description": "Sistema de aire acondicionado tipo minisplit, tecnología on/off, capacidad 1 TR (12.000 BTU/hr), SEER 9, refrigerante R410A, 220V/1 Ph/60Hz.",
+        "code": "MONOFF1TR",
+        "thumbnail": "https://cdn2.iconfinder.com/data/icons/ventilation-1/500/yul950_36_wall_air_conditioner_bottom_icon_outline_vector-512.png",
+        "price": 200,
+        "stock": 30
+    },
+    {
+        "_id": "default-2",
+        "productTimestamp": 1519129853500,
+        "name": "Minisplit Inverter (1 TR)",
+        "description": "Sistema de aire acondicionado tipo minisplit, tecnología inverter, capacidad 1 TR (12.000 BTU/hr), SEER 16, refrigerante R410A, 220V/1 Ph/60Hz.",
+        "code": "MINV1TR",
+        "thumbnail": "https://cdn2.iconfinder.com/data/icons/ventilation-1/500/yul950_36_wall_air_conditioner_bottom_icon_outline_vector-512.png",
+        "price": 300,
+        "stock": 35
+    },
+    {
+        "_id": "default-3",
+        "productTimestamp": 1519129853500,
+        "name": "Split Cassette (3 TR)",
+        "description": "Sistema de aire acondicionado split tipo cassette, tecnología inverter, capacidad 3 TR (36.000 BTU/hr), SEER 12, refrigerante R410A, 220V/1 Ph/60Hz.",
+        "code": "SPLCASS3TR",
+        "thumbnail": "https://cdn3.iconfinder.com/data/icons/196-car-supplies-and-parts-for-repair-outline/64/car_fan_radiator_cooling_service_system_air_conditioner_cold-512.png",
+        "price": 1000,
+        "stock": 42
+    },
+    {
+        "_id": "default-4",
+        "productTimestamp": 1519129853500,
+        "name": "Split Cassette (4 TR)",
+        "description": "Sistema de aire acondicionado split tipo cassette, tecnología inverter, capacidad 4 TR (48.000 BTU/hr), SEER 11, refrigerante R410A, 220V/1 Ph/60Hz.",
+        "code": "SPLCASS4TR",
+        "thumbnail": "https://cdn3.iconfinder.com/data/icons/196-car-supplies-and-parts-for-repair-outline/64/car_fan_radiator_cooling_service_system_air_conditioner_cold-512.png",
+        "price": 1200,
+        "stock": 27
+    },
+    {
+        "_id": "default-5",
+        "productTimestamp": 1668381905963,
+        "name": "Split Cassette (5 TR)",
+        "description": "Sistema de aire acondicionado split tipo cassette, tecnología inverter, capacidad 5 TR (60.000 BTU/hr), SEER 10, refrigerante R410A, 220V/1 Ph/60Hz.",
+        "code": "SPLCASS5TR",
+        "thumbnail": "https://cdn3.iconfinder.com/data/icons/196-car-supplies-and-parts-for-repair-outline/64/car_fan_radiator_cooling_service_system_air_conditioner_cold-512.png",
+        "price": 1400,
+        "stock": 38
+    },
+    {
+        "_id": "default-6",
+        "productTimestamp": 1519129853500,
+        "name": "Air Handler Unit (3 TR)",
+        "description": "Sistema de aire acondicionado tipo split central, tecnología inverter, capacidad 3 TR (36.000 BTU/hr), SEER 11, refrigerante R410A, 220V/1 Ph/60Hz.",
+        "code": "SPLCENT3TR",
+        "thumbnail": "https://cdn0.iconfinder.com/data/icons/energy-11/512/air_conditioner-512.png",
+        "price": 2000,
+        "stock": 13
+    },
+    {
+        "_id": "default-7",
+        "productTimestamp": 1519129853500,
+        "name": "Air Handler Unit (4 TR)",
+        "description": "Sistema de aire acondicionado tipo split central, tecnología inverter, capacidad 4 TR (48.000 BTU/hr), SEER 5, refrigerante R410A, 220V/1 Ph/60Hz.",
+        "code": "SPLCENT4TR",
+        "thumbnail": "https://cdn0.iconfinder.com/data/icons/energy-11/512/air_conditioner-512.png",
+        "price": 2200,
+        "stock": 8
+    },
+    {
+        "_id": "default-8",
+        "productTimestamp": 1519129853500,
+        "name": "Air Handler Unit (5 TR)",
+        "description": "Sistema de aire acondicionado tipo split central, tecnología inverter, capacidad 5 TR (60.000 BTU/hr), SEER 8, refrigerante R410A, 220V/1 Ph/60Hz.",
+        "code": "SPLCENT5TR",
+        "thumbnail": "https://cdn0.iconfinder.com/data/icons/energy-11/512/air_conditioner-512.png",
+        "price": 2400,
+        "stock": 15
+    }
+]

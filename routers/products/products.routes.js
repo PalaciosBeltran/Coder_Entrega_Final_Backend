@@ -1,24 +1,12 @@
 const express = require('express');
-const productsApi = require('../../api/products/products.api');
+const productsController = require('../../controllers/products.controllers');
 
 const router = express.Router();
 
-// GET: '/' - Me permite listar todos los productos disponibles (disponible para usuarios y administradores).
-router.get('/', productsApi.getProducts);
-
-// GET: '/:id' - Me permite listar un producto por su id (disponible para usuarios y administradores).
-router.get('/:id', productsApi.getProductByID);
-
-// POST:'/' - Para incorporar productos al listado (disponible para administradores).
-// Ejemplo: http://localhost:8080/api/productos?user=admin
-router.post('/', productsApi.saveNewProduct);
-
-// PUT: '/:id' - Actualiza un producto por su id (disponible para administradores).
-// Ejemplo: http://localhost:8080/api/productos/3?user=admin
-router.put('/:id', productsApi.updateCurrentProduct);
-
-// DELETE: '/:id' - Borra un producto por su id (disponible para administradores).
-// Ejemplo: http://localhost:8080/api/productos/3?user=admin   
-router.delete('/:id', productsApi.deleteProduct);
+router.get('/', productsController.getProducts);
+router.get('/:id', productsController.getProductByID);
+router.post('/', productsController.saveNewProduct);
+router.put('/:id', productsController.updateCurrentProduct);
+router.delete('/:id', productsController.deleteProduct);
 
 module.exports = router;
